@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我爱我家小饭桌数据中心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+            color: #222;
+        }
+        /* 顶部标题栏 */
+        .header {
+            background-color: #4088dd;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            min-height: calc(100vh - 70px);
+        }
+        /* 左侧菜单栏 */
+        .sidebar {
+            width: 220px;
+            background-color: #edf4fc;
+            border-right: 1px solid #cce0f5;
+            padding-top:20px;
+        }
+        .menu-item {
+            padding:14px 20px;
+            cursor: pointer;
+            font-size:16px;
+            transition: 0.2s;
+        }
+        .menu-item:hover {
+            background-color:#d0e4f7;
+        }
+        /* 主内容区域 */
+        .main-content {
+            flex:1;
+            padding:24px;
+        }
+        .panel {
+            display:none;
+        }
+        .back-btn {
+            background:#4088dd;
+            color:white;
+            border:none;
+            padding:8px 16px;
+            border-radius:4px;
+            cursor:pointer;
+            margin-bottom:16px;
+        }
+        .back-btn:hover{
+            background:#3072bb;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">我爱我家小饭桌数据中心</div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="menu-item" onclick="showPanel('dianming')">点名</div>
+            <div class="menu-item" onclick="showPanel('studentStatus')">学生到岗情况</div>
+            <div class="menu-item" onclick="showPanel('priceTable')">价格表</div>
+        </div>
+        <div class="main-content">
+            <!--初始空白，不显示任何面板-->
+
+            <!-- 点名面板 -->
+            <div id="dianming" class="panel">
+                <button class="back-btn" onclick="hideAllPanel()">返回</button>
+                <h2>点名</h2>
+                <div>这里后续做点名功能</div>
+            </div>
+
+            <!--学生到岗情况面板-->
+            <div id="studentStatus" class="panel">
+                <button class="back-btn" onclick="hideAllPanel()">返回</button>
+                <h2>学生到岗情况</h2>
+                <div>这里后续做学生到岗情况功能</div>
+            </div>
+
+            <!--价格表面板-->
+            <div id="priceTable" class="panel">
+                <button class="back-btn" onclick="hideAllPanel()">返回</button>
+                <h2>价格表</h2>
+                <div>这里后续做价格表功能</div>
+            </div>
+        </div>
+    </div>
+
+<script>
+//隐藏全部面板，回到空白初始状态
+function hideAllPanel(){
+    document.querySelectorAll('.panel').forEach(p=>{
+        p.style.display='none';
+    })
+}
+
+//展示指定面板
+function showPanel(panelId){
+    hideAllPanel();
+    document.getElementById(panelId).style.display='block';
+}
+</script>
+
+</body>
+</html>
